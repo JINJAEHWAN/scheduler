@@ -4,7 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 
 import 'pages/basics.dart';
-
+import 'pages2/todo.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -54,7 +54,7 @@ class _home_pageState extends State<home_page>
         title: Text('양력과 음력'),
       ),
       body:TabBarView(
-        children: <Widget>[TableBasicsExample(),],
+        children: <Widget>[TableBasicsExample(),Alert()],
         controller: controller,
       ),
         bottomNavigationBar: TabBar(tabs: <Tab>[
