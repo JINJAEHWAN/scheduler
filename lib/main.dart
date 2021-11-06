@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 
-import 'page2/Lunar.dart';
-import 'pages/lift.dart';
+
+import 'pages/basics.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,12 +54,12 @@ class _home_pageState extends State<home_page>
         title: Text('양력과 음력'),
       ),
       body:TabBarView(
-        children: <Widget>[lift(),Lunar()],
+        children: <Widget>[TableBasicsExample(),],
         controller: controller,
       ),
         bottomNavigationBar: TabBar(tabs: <Tab>[
-        Tab(icon: Icon(Icons.looks_one, color: Colors.blue),),
-        Tab(icon: Icon(Icons.looks_two, color: Colors.blue,))
+          Tab(icon: Icon(Icons.looks_one, color: Colors.blue),),
+          Tab(icon: Icon(Icons.looks_two, color: Colors.blue,))
         ], controller: controller,
       )
     );
