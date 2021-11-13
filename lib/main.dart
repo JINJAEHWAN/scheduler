@@ -51,7 +51,7 @@ class _home_pageState extends State<home_page>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('양력과 음력'),
+        title: Text('양력과 해야 할 일'),
       ),
       body:TabBarView(
         children: <Widget>[TableBasicsExample(),Alert()],

@@ -7,57 +7,81 @@ class Alert extends StatefulWidget {
   _AlertState createState() => _AlertState();
 }
 
+
 class _AlertState extends State<Alert> {
+
+  final myController = TextEditingController();
+
   List<String> listViewdata = [
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
   ];
+
+  void plus(){
+    setState(() {
+      listViewdata.add(myController.text);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Expanded(child: ListView(
-            children: [ListView(
-              children : listViewdata.map((data){
-                return ListTile(
-                  title: Text(data),
+          Expanded(
+            child: ListView(
+                children : listViewdata.map((data){
+                  return ListTile(
+                    title : Text(data),
                   );
                 }).toList()
-              )],
             ),
           ),
           Center(
             child: ElevatedButton(
               child: Text("AlertButton"),
-              onPressed: ()
-              {showAlert(context);},
+              onPressed: (){
+                showAlertDialog(context);
+              },
             ),
           ),
         ],
       ),
     );
   }
-}
 
-  showAlert(BuildContext context){
+  showAlertDialog(BuildContext context) {
 
-  AlertDialog alert = AlertDialog(
-    title: Text("title"),
-    content: Text("Contents"),
-    actions: [
-
-
-    ],
-  );
-  showDialog(
-      context: context,
-      builder: (BuildContext context){
-        return alert;
-      }
+    Widget okButton = TextButton(
+      child: Text("OK"),
+      onPressed: (){
+        plus();
+        Navigator.of(context).pop();
+      },
     );
+
+    AlertDialog alert = AlertDialog(
+      title: Text("title"),
+      content: TextField(
+        controller: myController,
+        decoration: InputDecoration(hintText: "Input 입력하세요"),
+      ),
+      actions: [
+        okButton,
+      ],
+    );
+
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alert;
+        }
+    );
+
   }
+
+}
