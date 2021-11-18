@@ -13,13 +13,14 @@ class _AlertState extends State<Alert> {
   final myController = TextEditingController();
 
   List<String> listViewdata = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
   ];
+
 
   void plus(){
     setState(() {
@@ -37,6 +38,10 @@ class _AlertState extends State<Alert> {
                 children : listViewdata.map((data){
                   return ListTile(
                     title : Text(data),
+                    onTap: (){
+                      print(data);
+
+                    },
                   );
                 }).toList()
             ),
@@ -53,6 +58,8 @@ class _AlertState extends State<Alert> {
       ),
     );
   }
+
+
 
   showAlertDialog(BuildContext context) {
 
